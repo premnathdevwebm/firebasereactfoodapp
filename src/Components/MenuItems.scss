@@ -1,0 +1,29 @@
+.menu {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+  .menu-item {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+
+    h4 {
+      margin-top: 0;
+    }
+    img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    p {
+      font-size: 14px;
+      margin-bottom: 5px;
+      background-color: #ccc;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+
+  .sidebar {
+    width: 20%;
+    color: black;
+    background-color: #f1f1f1;
+  }
+
+  .outlet {
+    width: 80%;
+  }
+}

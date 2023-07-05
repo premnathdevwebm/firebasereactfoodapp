@@ -1,0 +1,24 @@
+$fullwidth: 100;
+$colorAqua: rgba(85, 191, 233, 0.993);
+$colorYellow: rgba(235, 232, 51, 0.993);
+$colorBlue: rgb(22, 61, 97);
+$colorChooseButton: purple;
+
+.App {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: $colorBlue;
+  text-align: center;
+  color: white;
+
+.title {
+  color: $colorYellow;
+  font-weight: 400;
+  font-size: 2rem;
+}
+.subTitle {
+  color: $colorAqua;
+  font-weight: 400;
+  font-size: 34px;
+  margin-bottom: 0px;
+}
+}

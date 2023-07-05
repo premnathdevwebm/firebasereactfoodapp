@@ -1,0 +1,82 @@
+$primary-color: #337ab7;
+$text-color: #ffffff;
+.ordercontainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+
+  .row1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .itemcol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 20px;
+
+      .ordername {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+      p {
+        margin-bottom: 5px;
+      }
+      p:last-child {
+        font-weight: bold;
+      }
+    }
+
+    .ordercol {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .ordercol1 {
+        .inputlabel {
+          display: inline-block;
+          width: 120px;
+        }
+        .inputtype {
+          padding: 2px;
+        }
+      }
+    }
+  }
+
+  .row2 {
+    width: 70%;
+    margin: 0 auto;
+    .purchase {
+      display: flex;
+      gap: 10px;
+      button {
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: $primary-color;
+        color: $text-color;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+
+        &:active {
+          background-color: darken($primary-color, 20%);
+        }
+      }
+    }
+  }
+}
