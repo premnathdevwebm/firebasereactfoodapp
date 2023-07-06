@@ -76,7 +76,7 @@ const Auth = () => {
     const result = newUser
       ? await signUp(name, email, password, profileImg)
       : await signIn(email, password);
-    if (result.error) {
+    if (result?.error) {
       setError(result);
     }
   };

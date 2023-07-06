@@ -9,15 +9,7 @@ import {
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCwUgZi4i681kE9tWInZabtTt-hp4tA57M",
-  authDomain: "foodapp-56bf3.firebaseapp.com",
-  projectId: "foodapp-56bf3",
-  storageBucket: "foodapp-56bf3.appspot.com",
-  messagingSenderId: "1039704610636",
-  appId: "1:1039704610636:web:3299c4f4cb598a38f221e9",
-  measurementId: "G-K1FGVNHYET",
-};
+const firebaseConfig = JSON.parse(process.env.REACT_APP_API_KEY);
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
