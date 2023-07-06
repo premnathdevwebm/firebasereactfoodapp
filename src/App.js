@@ -1,5 +1,9 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+
 import "./App.scss";
+import { auth, signOutFun } from "./Auth/Firebasejs";
 import { FoodItemsContext } from "./store/food-context";
 import MenuItems from "./Components/MenuItems";
 import OrderItem from "./Components/OrderItem";
@@ -7,7 +11,27 @@ import OrderItem from "./Components/OrderItem";
 function App() {
   const [isChooseFoodPage, setIsChooseFoodPage] = useState(0);
   const [foodChoosed, setFoodChoosed] = useState({});
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
   const { menuItems } = useContext(FoodItemsContext);
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  const navigateCallback = useCallback(navigate, [navigate]);
+
+
+
+  useEffect(() => {
+    if (user) {
+      const user = auth.currentUser;
+      setUserEmail(user.email);
+      if (user.email === "admin@justfood.com") {
+        setIsAdmin(true);
+      }
+    } else {
+      navigateCallback("/");
+    }
+  }, [user, loading, navigateCallback]);
   
   const chooseFood = (food) => {
     if (food) {
@@ -24,7 +48,9 @@ function App() {
   return (
     <div className="App">
       <h3 className="title">Just Food Online Shop</h3>
-
+      <button onClick={signOutFun}>SignOut</button>
+      {isAdmin && <>Admin Account</>}
+      {userEmail}
       {Object.keys(foodChoosed).length < 0 && (
         <h4 className="subTitle">Menu Availability</h4>
       )}
