@@ -32,6 +32,7 @@ const signUp = async (name, email, password, imgUrl) => {
       uid: user.uid,
       name,
       authProvider: "local",
+      photoURL: imgUrl,
       email,
     });
   } catch (error) {
